@@ -26,16 +26,21 @@ public class Student {
         ScoreSysteem scoreSysteem = new ScoreSysteem();
         long gelopenTijdVraag = System.currentTimeMillis();
         int aantalVragen = uitvoering.getKennistoets().getAantalVragen();
-        for (int i = 0; aantalVragen < i; aantalVragen++) {
-            Vraag huidigeVraag = uitvoering.volgendeVraag(i);
-            scoreSysteem.beantwoordVraag(huidigeVraag, "features en requirements", gelopenTijdVraag);
-            long huidgeTijd = System.currentTimeMillis();
-            gelopenTijdVraag = huidgeTijd - gelopenTijdVraag;
+        for (int i = 0; aantalVragen > i; i++) {
+            Vraag huidigeVraag = uitvoering.getKennistoets().getVraag(i);
+            scoreSysteem.beantwoordVraag(huidigeVraag, "features en requirements", getGelopenTijd(gelopenTijdVraag));
+            uitvoering.volgendeVraag(i);
         }
         score = scoreSysteem.score.getScore();
     }
 
     public void setUitvoering(Uitvoering uitvoering) {
         this.uitvoering = uitvoering;
+    }
+
+    public long getGelopenTijd(long gelopenTijdVraag) {
+        long huidgeTijd = System.currentTimeMillis();
+        return gelopenTijdVraag = huidgeTijd - gelopenTijdVraag;
+
     }
 }

@@ -18,4 +18,8 @@ public class Antwoord {
     public int getNr() {
         return nr;
     }
+
+    public String getTekst() {
+        return tekst;
+    }
 }

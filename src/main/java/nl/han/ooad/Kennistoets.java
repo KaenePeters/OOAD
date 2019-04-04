@@ -16,6 +16,7 @@ public class Kennistoets {
         if (code.equals("ODI23644129")) {
             OdinidoToetsbank odinidoToetsbank = new OdinidoToetsbank();
             vragen = odinidoToetsbank.maakVragenVoorToetsODI23644129();
+
         }
         if (code.equals("ODI24878686")) {
             OdinidoToetsbank odinidoToetsbank = new OdinidoToetsbank();
@@ -34,18 +35,15 @@ public class Kennistoets {
 
     public int getAantalVragen() {
         return vragen.size();
+
     }
 
     public Vraag getVraag(int nummer) {
-        Vraag vraag1 = null;
         for (Vraag vraag : vragen) {
             if (vraag.getNummer() == (nummer)) {
-                vraag1 = vraag;
-            } else {
-                throw new RuntimeException("vraagn " + nummer + " bestaat niet");
+                return vraag;
             }
         }
-        return vraag1;
+        return vragen.get(0);
     }
-
 }
