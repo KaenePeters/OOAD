@@ -14,8 +14,12 @@ public class Odinido {
         Student student = new Student(naam, lokaal);
     }
 
-    public void aanmakenUitvoering(int nummer, String titel) {
+    public void aanmakenUitvoering(int code, Kennistoets kennistoets, Lokaal lokaal, int tijd) {
+        lokaal.startUitvoering(code,kennistoets,tijd);
     }
 
+    public void stopUitvoering(Lokaal lokaal) {
+        lokaal.sluitLokaal(this);
+    }
 
 }

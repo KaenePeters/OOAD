@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Vraag {
 
     ArrayList<Antwoord> antwoorden = new ArrayList<>();
-    ArrayList<Antwoord> correcteAntwoorden = new ArrayList<>();
+
     private String tekst;
     private int nummer;
     private int maxScore;
@@ -16,13 +16,21 @@ public class Vraag {
         this.maxScore = maxScore;
     }
 
-    public void voegAntwoordToe(Antwoord antwoord, boolean correct) {
-        if (correct) {
-            correcteAntwoorden.add(antwoord);
-        } else {
-            antwoorden.add(antwoord);
-        }
+    public void voegAntwoordToe(int nr, String tekst, boolean correct) {
+        Antwoord antwoord = new Antwoord(nr,tekst,correct);
+        antwoorden.add(antwoord);
+    }
+
+    public ArrayList<Antwoord> getAntwoorden(){
+        return antwoorden;
+    }
+
+    public int getNummer() {
+        return nummer;
+    }
 
 
+    public int getMaxScore() {
+        return maxScore;
     }
 }
